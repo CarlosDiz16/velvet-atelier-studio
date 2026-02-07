@@ -7,26 +7,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #F5F5F0; --text: #2D2D2D; --gold: #C5B358; }
-        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; }
-        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; position: sticky; top: 0; background: rgba(245,245,240,0.9); z-index: 10; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; position: sticky; top: 0; background: rgba(245,245,240,0.9); z-index: 10; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; text-transform: uppercase; }
         header { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; font-style: italic; margin: 0; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 400; font-style: italic; margin: 0; }
         .subtitle { text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem; }
         .section-title { text-align: center; padding: 5rem 0 2rem; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #E0E0DB; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; padding: 0 10% 5rem; }
         .card { text-align: center; margin-bottom: 2rem; }
-        .card-img { width: 100%; aspect-ratio: 1/1; background: #EBEBE6; margin-bottom: 1rem; object-fit: cover; background-size: cover; background-position: center; }
+        .card-img { width: 100%; aspect-ratio: 1/1; background: #EBEBE6; margin-bottom: 1rem; object-fit: cover; background-size: cover; background-position: center; transition: transform 0.5s ease; }
+        .card:hover .card-img { transform: scale(1.02); }
         
-        /* IMAGE LINKS */
+        /* DYNAMIC IMAGE LINKS */
         .img-gold-pink { background-image: url('Flower Gold Pink.jpg'); }
         .img-premium-large { background-image: url('Premium Large Bouquet.jpg'); }
         .img-blue-pot { background-image: url('Flower Blue.jpg'); }
 
         .card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.3rem; }
-        .card-price { font-size: 0.8rem; opacity: 0.6; }
-        .btn { width: 100%; background: var(--text); color: white; padding: 1.2rem; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background: #444; }
+        .card-price { font-size: 0.8rem; opacity: 0.6; letter-spacing: 1px; }
+        .form-area { max-width: 500px; margin: 0 auto 5rem; padding: 0 5%; }
+        input, select, textarea { width: 100%; padding: 1rem 0; margin-bottom: 1.5rem; border: none; border-bottom: 1px solid #CCC; background: transparent; font-family: 'Montserrat', sans-serif; outline: none; }
+        .btn { width: 100%; background: var(--text); color: white; padding: 1.2rem; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; cursor: pointer; }
         footer { padding: 4rem; text-align: center; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; line-height: 2; border-top: 1px solid #E0E0DB; }
     </style>
 </head>
@@ -34,51 +36,72 @@
 
 <nav>
     <div class="logo">Velvet Atelier</div>
-    <div id="availability">AVAILABILITY: 04/15 SLOTS</div>
+    <div id="status">LIMITED COMMISSIONS ONLY</div>
 </nav>
 
 <header>
-    <div class="subtitle">Handcrafted In Quezon City</div>
-    <h1>Sculptural Artistry</h1>
+    <div class="subtitle">Commonwealth, Quezon City</div>
+    <h1>The Sculptural Series</h1>
 </header>
 
 <div class="section-title">The Flower Series</div>
 <div class="grid">
     <div class="card">
-        <div class="card-img"></div>
-        <div class="card-title">Simple & Single Bloom</div>
-        <div class="card-price">150</div>
-    </div>
-    <div class="card">
-        <div class="card-img img-gold-pink"></div>
+        <div class="card-img img-gold-pink"></div> 
         <div class="card-title">Standard Mixed Bouquet</div>
         <div class="card-price">250</div>
     </div>
     <div class="card">
-        <div class="card-img img-premium-large"></div>
+        <div class="card-img img-premium-large"></div> 
         <div class="card-title">Premium Large Bouquet</div>
         <div class="card-price">450</div>
+    </div>
+</div>
+
+<div class="section-title">The Flower Pot Series</div>
+<div class="grid">
+    <div class="card">
+        <div class="card-img img-blue-pot"></div> 
+        <div class="card-title">Artisan Flower Pot (Azure)</div>
+        <div class="card-price">349 — 500</div>
     </div>
 </div>
 
 <div class="section-title">The Prosperity Series</div>
 <div class="grid">
     <div class="card">
-        <div class="card-img"></div>
-        <div class="card-title">The Prosperity Bouquet</div>
-        <div class="card-price">11,500</div>
-    </div>
-    <div class="card">
-        <div class="card-img"></div>
-        <div class="card-title">The Grand Bouquet</div>
+        <div class="card-img"></div> <div class="card-title">The Grand Bouquet</div>
         <div class="card-price">54,000</div>
     </div>
 </div>
 
+<div class="section-title">Request A Commission</div>
+<div class="form-area">
+    <form action="#" id="atelierForm">
+        <input type="text" placeholder="NAME" required>
+        <select required>
+            <option value="" disabled selected>SELECT SERIES</option>
+            <option>FLOWER SERIES</option>
+            <option>FLOWER POT SERIES</option>
+            <option>PROSPERITY SERIES</option>
+        </select>
+        <textarea placeholder="TELL US ABOUT THE OCCASION" rows="4"></textarea>
+        <button type="submit" class="btn">Inquire</button>
+    </form>
+</div>
+
 <footer>
     VELVET ATELIER • 2026<br>
-    COMMONWEALTH, QUEZON CITY
+    HANDCRAFTED IN QUEZON CITY, PHILIPPINES
 </footer>
+
+<script>
+    // Handles the luxury inquiry message
+    document.getElementById('atelierForm').onsubmit = function(e) {
+        e.preventDefault();
+        this.innerHTML = "<p style='font-family:\"Playfair Display\"; font-style:italic;'>Your inquiry has been received. We will contact you shortly to discuss your custom piece.</p>";
+    };
+</script>
 
 </body>
 </html>
