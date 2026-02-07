@@ -7,52 +7,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #F5F5F0; --text: #2D2D2D; }
-        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
         
-        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; position: sticky; top: 0; background: rgba(245,245,240,0.9); z-index: 10; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; text-transform: uppercase; }
+        /* Fixed Navigation */
+        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; letter-spacing: 2px; position: sticky; top: 0; background: rgba(245,245,240,0.95); z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 4px; }
         
-        header { height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 7vw, 3.5rem); font-weight: 400; font-style: italic; margin: 0; }
-        .subtitle { text-transform: uppercase; letter-spacing: 5px; font-size: 0.7rem; opacity: 0.7; margin-bottom: 1rem; }
+        /* Hero Section */
+        header { height: 45vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 400; font-style: italic; margin: 0; color: #1a1a1a; }
+        .subtitle { text-transform: uppercase; letter-spacing: 6px; font-size: 0.7rem; opacity: 0.6; margin-bottom: 1rem; }
         
-        .section-title { text-align: center; padding: 4rem 0 2rem; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #E0E0DB; }
+        /* Section Titles */
+        .section-title { text-align: center; padding: 5rem 0 3rem; font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; color: #888; border-top: 1px solid #E0E0DB; width: 90%; margin: 0 auto; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; padding: 0 10% 4rem; }
-        .card { text-align: center; }
+        /* THE FIX: Professional Grid & Square Images */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; padding: 0 10% 6rem; max-width: 1400px; margin: 0 auto; }
+        .card { text-align: center; display: flex; flex-direction: column; align-items: center; }
         
-        /* IMAGE STABILIZER: Keeps photos fixed and professional */
+        /* This container forces the image into a perfect square */
         .card-img { 
             width: 100%; 
             aspect-ratio: 1 / 1; 
+            max-width: 450px; /* Prevents it from getting too huge on big screens */
             background: #EBEBE6; 
-            margin-bottom: 1.5rem; 
+            margin-bottom: 1.8rem; 
             background-size: cover; 
             background-position: center; 
             background-repeat: no-repeat;
-            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
+        .card:hover .card-img { transform: scale(1.02); }
         
-        /* ASSIGNING YOUR SPECIFIC FILES */
+        /* IMAGE ASSIGNMENTS */
         .img-gold-pink { background-image: url('Flower Gold Pink.jpg'); }
         .img-premium { background-image: url('Premium Large Bouquet.jpg'); }
         .img-blue-pot { background-image: url('Flower Blue.jpg'); }
 
-        .card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.4rem; }
-        .card-price { font-size: 0.8rem; opacity: 0.6; letter-spacing: 1px; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 0.5px; }
+        .card-price { font-size: 0.75rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase; }
         
-        footer { padding: 4rem; text-align: center; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; line-height: 2; border-top: 1px solid #E0E0DB; }
+        footer { padding: 5rem 0; text-align: center; font-size: 0.6rem; letter-spacing: 3px; opacity: 0.4; line-height: 2.5; border-top: 1px solid #E0E0DB; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">Velvet Atelier</div>
-    <div style="font-size: 0.6rem;">03/15 SLOTS AVAILABLE</div>
+    <div style="opacity:0.6;">03/15 SLOTS REMAINING</div>
 </nav>
 
 <header>
-    <div class="subtitle">Handcrafted In Quezon City</div>
+    <div class="subtitle">Commonwealth, Quezon City</div>
     <h1>The Sculptural Series</h1>
 </header>
 
@@ -90,7 +97,8 @@
 
 <footer>
     VELVET ATELIER • 2026<br>
-    7 ROSSINI, IDEAL SUBDIVISION, COMMONWEALTH, QUEZON CITY
+    7 ROSSINI, IDEAL SUBDIVISION<br>
+    COMMONWEALTH, QUEZON CITY
 </footer>
 
 </body>
