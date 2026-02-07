@@ -19,10 +19,10 @@
         .card-img { width: 100%; aspect-ratio: 1/1; background: #EBEBE6; margin-bottom: 1rem; object-fit: cover; background-size: cover; background-position: center; transition: transform 0.5s ease; }
         .card:hover .card-img { transform: scale(1.02); }
         
-        /* DYNAMIC IMAGE LINKS */
+        /* UPDATED IMAGE LINKS */
+        .img-blue-bloom { background-image: url('Flower Blue.jpg'); } /* Linked to Single Bloom */
         .img-gold-pink { background-image: url('Flower Gold Pink.jpg'); }
         .img-premium-large { background-image: url('Premium Large Bouquet.jpg'); }
-        .img-blue-pot { background-image: url('Flower Blue.jpg'); }
 
         .card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.3rem; }
         .card-price { font-size: 0.8rem; opacity: 0.6; letter-spacing: 1px; }
@@ -47,6 +47,11 @@
 <div class="section-title">The Flower Series</div>
 <div class="grid">
     <div class="card">
+        <div class="card-img img-blue-bloom"></div> 
+        <div class="card-title">Simple & Single Bloom</div>
+        <div class="card-price">150</div>
+    </div>
+    <div class="card">
         <div class="card-img img-gold-pink"></div> 
         <div class="card-title">Standard Mixed Bouquet</div>
         <div class="card-price">250</div>
@@ -58,19 +63,16 @@
     </div>
 </div>
 
-<div class="section-title">The Flower Pot Series</div>
-<div class="grid">
-    <div class="card">
-        <div class="card-img img-blue-pot"></div> 
-        <div class="card-title">Artisan Flower Pot (Azure)</div>
-        <div class="card-price">349 — 500</div>
-    </div>
-</div>
-
 <div class="section-title">The Prosperity Series</div>
 <div class="grid">
     <div class="card">
-        <div class="card-img"></div> <div class="card-title">The Grand Bouquet</div>
+        <div class="card-img"></div>
+        <div class="card-title">The Prosperity Bouquet</div>
+        <div class="card-price">11,500</div>
+    </div>
+    <div class="card">
+        <div class="card-img"></div> 
+        <div class="card-title">The Grand Bouquet</div>
         <div class="card-price">54,000</div>
     </div>
 </div>
@@ -82,7 +84,6 @@
         <select required>
             <option value="" disabled selected>SELECT SERIES</option>
             <option>FLOWER SERIES</option>
-            <option>FLOWER POT SERIES</option>
             <option>PROSPERITY SERIES</option>
         </select>
         <textarea placeholder="TELL US ABOUT THE OCCASION" rows="4"></textarea>
@@ -96,10 +97,9 @@
 </footer>
 
 <script>
-    // Handles the luxury inquiry message
     document.getElementById('atelierForm').onsubmit = function(e) {
         e.preventDefault();
-        this.innerHTML = "<p style='font-family:\"Playfair Display\"; font-style:italic;'>Your inquiry has been received. We will contact you shortly to discuss your custom piece.</p>";
+        this.innerHTML = "<p style='font-family:\"Playfair Display\"; font-style:italic; padding: 2rem; border: 1px solid #2D2D2D;'>Your inquiry has been received. Our lead artisan will contact you shortly.</p>";
     };
 </script>
 
