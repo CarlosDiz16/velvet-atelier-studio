@@ -7,60 +7,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #F5F5F0; --text: #2D2D2D; }
-        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; }
         
-        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; letter-spacing: 2px; position: sticky; top: 0; background: rgba(245,245,240,0.95); z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 4px; }
+        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; position: sticky; top: 0; background: rgba(245,245,240,0.9); z-index: 10; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; text-transform: uppercase; }
         
-        header { height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 400; font-style: italic; margin: 0; }
-        .subtitle { text-transform: uppercase; letter-spacing: 6px; font-size: 0.7rem; opacity: 0.6; margin-bottom: 1rem; }
+        header { height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 7vw, 3.5rem); font-weight: 400; font-style: italic; margin: 0; }
+        .subtitle { text-transform: uppercase; letter-spacing: 5px; font-size: 0.7rem; opacity: 0.7; margin-bottom: 1rem; }
         
-        .section-title { text-align: center; padding: 4rem 0 2rem; font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: #888; border-top: 1px solid #E0E0DB; width: 80%; margin: 0 auto; }
+        .section-title { text-align: center; padding: 4rem 0 2rem; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #E0E0DB; width: 80%; margin: 0 auto; }
         
-        /* THE STABILITY FIX */
+        /* THE STABILITY FIX: max-width prevents the "too large" look on desktop */
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 350px)); /* Limits how wide cards can grow */
-            justify-content: center; /* Centers the grid on the screen */
-            gap: 4rem; 
-            padding: 0 5% 5rem; 
-            max-width: 1100px; /* Keeps the entire gallery from stretching too wide */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 3rem; 
+            padding: 0 10% 4rem; 
+            max-width: 1200px; 
             margin: 0 auto; 
         }
-
-        .card { text-align: center; }
+        .card { text-align: center; display: flex; flex-direction: column; }
         
-        /* Strict sizing to prevent the "Too Large" look */
         .card-img { 
             width: 100%; 
-            height: 350px; /* Forces a specific height */
+            aspect-ratio: 1 / 1; /* Keeps it a perfect square */
+            height: 380px; /* Uniform height */
             background: #EBEBE6; 
             margin-bottom: 1.5rem; 
             background-size: cover; 
             background-position: center; 
             background-repeat: no-repeat;
-            border-radius: 1px;
             transition: opacity 0.3s ease;
         }
-        .card:hover .card-img { opacity: 0.8; }
+        .card-img:hover { opacity: 0.9; }
         
-        /* IMAGE LINKS */
+        .img-blue { background-image: url('Flower Blue.jpg'); }
         .img-gold-pink { background-image: url('Flower Gold Pink.jpg'); }
         .img-premium { background-image: url('Premium Large Bouquet.jpg'); }
-        .img-blue-pot { background-image: url('Flower Blue.jpg'); }
 
-        .card-title { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; letter-spacing: 0.5px; }
-        .card-price { font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .card-price { font-size: 0.8rem; opacity: 0.6; letter-spacing: 1px; }
         
-        footer { padding: 5rem 0; text-align: center; font-size: 0.6rem; letter-spacing: 3px; opacity: 0.4; line-height: 2.5; border-top: 1px solid #E0E0DB; text-transform: uppercase; }
+        footer { padding: 4rem; text-align: center; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; line-height: 2; border-top: 1px solid #E0E0DB; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">Velvet Atelier</div>
-    <div style="opacity:0.6;">03/15 SLOTS REMAINING</div>
+    <div>LIMITED COMMISSIONS ONLY</div>
 </nav>
 
 <header>
@@ -73,37 +69,42 @@
     <div class="card">
         <div class="card-img img-gold-pink"></div>
         <div class="card-title">Standard Mixed Bouquet</div>
-        <div class="card-price">₱250</div>
+        <div class="card-price">250</div>
     </div>
+
     <div class="card">
         <div class="card-img img-premium"></div>
         <div class="card-title">Premium Large Bouquet</div>
-        <div class="card-price">₱450</div>
+        <div class="card-price">450</div>
     </div>
 </div>
 
 <div class="section-title">The Flower Pot Series</div>
 <div class="grid">
     <div class="card">
-        <div class="card-img img-blue-pot"></div>
+        <div class="card-img img-blue"></div>
         <div class="card-title">Artisan Flower Pot (Azure)</div>
-        <div class="card-price">Starting at ₱249</div>
+        <div class="card-price">Starting at 249</div>
     </div>
 </div>
 
 <div class="section-title">The Prosperity Series</div>
 <div class="grid">
     <div class="card">
-        <div class="card-img" style="background-color:#EBEBE6;"></div> 
+        <div class="card-img"></div> 
+        <div class="card-title">The Prosperity Bouquet</div>
+        <div class="card-price">11,500</div>
+    </div>
+    <div class="card">
+        <div class="card-img"></div> 
         <div class="card-title">The Grand Bouquet</div>
-        <div class="card-price">₱54,000</div>
+        <div class="card-price">54,000</div>
     </div>
 </div>
 
 <footer>
     VELVET ATELIER • 2026<br>
-    7 ROSSINI, IDEAL SUBDIVISION<br>
-    COMMONWEALTH, QUEZON CITY
+    7 ROSSINI, IDEAL SUBDIVISION, COMMONWEALTH, QUEZON CITY
 </footer>
 
 </body>
